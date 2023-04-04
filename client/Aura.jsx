@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
-
+import Upload from './Upload.jsx';
 
 const Aura = () =>{
 
 
   return (
-    <h1>Aura Time</h1>);
+    <div>
+      <h1>Aura Time</h1>
+      <Upload/>
+    </div>
+    
+  );
 
 
 
