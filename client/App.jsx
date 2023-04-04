@@ -4,6 +4,10 @@ import Astrology from './Astrology.jsx';
 import Feed from './Feed.jsx';
 import Tarot from './Tarot.jsx';
 import Favorites from './Favorites.jsx';
+import Aura from './Aura.jsx';
+import CrystalBall from './CrystalBall.jsx';
+import Planets from './Planets.jsx';
+import Toms from './Toms.jsx';
 import { Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 
@@ -41,6 +45,10 @@ const App = () => {
             <Route path="/astrology" element={<Astrology />} />
             <Route path="/tarot" element={<Tarot />} />
             <Route path="/favorites" element={<Favorites />} />
+            <Route path="/aura" element={<Aura />} />
+            <Route path="/crystal-ball" element={<CrystalBall />} />
+            <Route path="/planets" element={<Planets />} />
+            <Route path="/toms" element={<Toms />} />
           </Routes>
         </div>
       </UserContext.Provider>
