@@ -70,6 +70,10 @@ const NavBar = () => {
       <NavItem> <Link to="/astrology" onClick={(e) => handleClick(e, 'Scopes')}>Horoscopes</Link></NavItem>
       <NavItem>  <Link to="/tarot" onClick={(e) => handleClick(e, 'Tarot')}>Get A reading</Link></NavItem>
       <NavItem> <Link to="/favorites" onClick={(e) => handleClick(e, 'Favorites')}>Favorite Quotes</Link></NavItem>
+      <NavItem> <Link to="/aura" onClick={(e) => handleClick(e, 'Aura')}>See Aura</Link></NavItem>
+      <NavItem> <Link to="/crystal-ball" onClick={(e) => handleClick(e, 'CrystalBall')}>Crystal Ball</Link></NavItem>
+      <NavItem> <Link to="/planets" onClick={(e) => handleClick(e, 'Planets')}>Planets</Link></NavItem>
+      <NavItem> <Link to="/toms" onClick={(e) => handleClick(e, 'Toms')}>Toms Special Button</Link></NavItem>
     </NavStyle >
   );
 };
