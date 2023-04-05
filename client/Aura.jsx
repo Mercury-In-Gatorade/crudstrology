@@ -38,9 +38,13 @@ const Aura = () =>{
       <Upload getImage={getImage}/>
       <button style={{color: 'black'}} onClick={getImage}>See yo Self</button>
       <button style={{color: 'black'}} onClick={getPrediction}>What Does It Mean</button>
-      <div style={{position: 'relative', display: 'inline-block'}}>
-        <img src={image} style={{width: '100%'}}/>
-        {image && <img src={aura} style={{position: 'absolute', top: 0, left: 0, zIndex: 1, width: '100%', height: '100%', opacity: 0.6}}/>}
+      <div style={{position: 'relative'}}>
+  <img src='https://i.imgur.com/LCN604d.png' style={{width: '100%'}} />
+  <img src={image} style={{width: '70%',height:'65%', position: 'absolute', top: '49%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1, boxShadow: '20px 20px 20px 20pxpx rgba(0,0,0,0.5) inset',
+    borderRadius: '5px'}} />
+
+        <img src={aura} style={{width: '70%',height:'65%', position: 'absolute', top: '49%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1, opacity:'65%'}} />
+        
       </div>
       <div>
         <h1>What It All Means</h1>
