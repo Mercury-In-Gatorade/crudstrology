@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 
-const Upload = () =>{
+const Upload = ({getImage}) =>{
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
   useEffect(()=>{
@@ -16,7 +16,7 @@ const Upload = () =>{
   }, []);
 
   return (
-    <button onClick={()=>{ widgetRef.current.open(); }}>Upload</button>
+    <button style={{color: 'black'}}onClick={()=>{ widgetRef.current.open(); }}>Upload</button>
   );
 };
 
