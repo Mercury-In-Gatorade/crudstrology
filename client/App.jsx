@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import TarotDeck from '../utils/tarot-images.json';
 import NavBar from './NavBar.jsx';
 import Astrology from './Astrology.jsx';
 import Feed from './Feed.jsx';
@@ -15,6 +16,8 @@ export const UserContext = React.createContext();
 
 const App = () => {
 
+  const [tarot, setTarot] = useState([]);
+  const [fortune, setFortune] = useState([]);
   const [user, setUser] = useState();
   const [dob, setDob] = useState();
   const [sign, setSign] = useState();
@@ -32,6 +35,24 @@ const App = () => {
       });
   }, []);
 
+  const drawCards = () => {
+    setFortune([]);
+    axios.get('/db/tarot')
+      .then(({ data }) => {
+        setTarot(() => [...data]);
+        data.forEach((drawnCard, i) => {
+          // console.log('FIRST forEach, drawnCard', drawnCard);
+          TarotDeck.cards.forEach((deckCard) => {
+            if (deckCard.name === drawnCard.name) {
+              setFortune(prevFortune => [...prevFortune, deckCard.fortune_telling[i]]); // change to [i]
+              return;
+            }
+          });
+        });
+      })
+      .catch((err) =>
+        console.log('ERROR in useEffect in Tarot.jsx: ', err));
+  };
 
   return (
     <>
@@ -43,10 +64,10 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Feed />} />
             <Route path="/astrology" element={<Astrology />} />
-            <Route path="/tarot" element={<Tarot />} />
+            <Route path="/tarot" element={<Tarot drawCards={drawCards} tarot={tarot} setTarot={setTarot} fortune={fortune} setFortune={setFortune} />} />
             <Route path="/favorites" element={<Favorites />} />
             <Route path="/aura" element={<Aura />} />
-            <Route path="/crystal-ball" element={<CrystalBall />} />
+            <Route path="/crystal-ball" element={<CrystalBall drawCards={drawCards} tarot={tarot} user={user} sign={sign} setDob={setDob} setSign={setSign} />} />
             <Route path="/planets" element={<Planets />} />
             <Route path="/toms" element={<Toms />} />
           </Routes>
