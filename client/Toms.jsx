@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-
+import UserForm from './UserForm.jsx';
 
 const Toms = () =>{
 
 
   return (
-    <h1>Toms Page</h1>);
+    <div>    <h1>Toms Page</h1>
+      <UserForm />
+    </div>
 
-
-
+  );
 };
 
 
