@@ -60,3 +60,7 @@ body {
   left: 1rem;
   color: black;
 }
+
+.planetsContainer {
+  display: flex;
+}
