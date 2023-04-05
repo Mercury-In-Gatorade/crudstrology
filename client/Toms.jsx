@@ -5,7 +5,8 @@ const Toms = () =>{
 
 
   return (
-    <div>    <h1>Toms Page</h1>
+    <div>    
+      <h1>Toms Page</h1>
       <UserForm />
     </div>
 

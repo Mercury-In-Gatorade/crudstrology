@@ -29,12 +29,12 @@ External.get('/quotes', (req, res) => {
 // API
 External.post('/horo', (req, res) => {
   // console.log('____SERVER____');
-  // console.log('REQ BODY', req.body)
+  console.log('REQ BODY', req.body);
   const { user } = req.body;
-  // console.log('USER DESTRUCTURED', user);
+  console.log('USER DESTRUCTURED', user);
   axios.post(`https://aztro.sameerkumar.website?sign=${user.sign}&day=today`)
     .then(result => {
-      // console.log('RESULT from Aztro API', result.data);
+      console.log('RESULT from Aztro API', result.data);
       result.data.sign = user.sign;
       res.status(200).send(result.data);
     })
