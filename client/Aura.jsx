@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Upload from './Upload.jsx';
+import RingLoader from 'react-spinners/RingLoader';
 import { auraData } from '../database/auraData.js';
 const Aura = () =>{
   //set the state to that image url
@@ -31,27 +32,52 @@ const Aura = () =>{
       });
   };
 
-
-  return (
-    <div>
-      <h1>Aura Time</h1>
-      <Upload getImage={getImage}/>
-      <button style={{color: 'black'}} onClick={getImage}>See yo Self</button>
-      <button style={{color: 'black'}} onClick={getPrediction}>What Does It Mean</button>
-      <div style={{position: 'relative'}}>
-  <img src='https://i.imgur.com/LCN604d.png' style={{width: '100%'}} />
-  <img src={image} style={{width: '70%',height:'65%', position: 'absolute', top: '49%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1, boxShadow: '20px 20px 20px 20pxpx rgba(0,0,0,0.5) inset',
-    borderRadius: '5px'}} />
-
-        <img src={aura} style={{width: '70%',height:'65%', position: 'absolute', top: '49%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1, opacity:'65%'}} />
-        
-      </div>
+  if (prediction) {
+    return (
       <div>
-        <h1>What It All Means</h1>
-        <p>{prediction}</p>
+        <h1>Aura Time</h1>
+        <Upload getImage={getImage}/>
+      
+        <button style={{color: 'black'}} onClick={getImage}>See yo Self</button>
+        <button style={{color: 'black'}} onClick={getPrediction}>What Does It Mean</button>
+        <div style={{position: 'relative'}}>
+          <img src='https://i.imgur.com/LCN604d.png' style={{width: '100%'}} />
+          <img src={image} style={{width: '70%', height: '65%', position: 'absolute', top: '49%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1, boxShadow: '20px 20px 20px 20pxpx rgba(0,0,0,0.5) inset',
+            borderRadius: '5px'}} />
+
+          <img src={aura} style={{width: '70%', height: '65%', position: 'absolute', top: '49%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1, opacity: '65%'}} />
+        
+        </div>
+        <div>
+          <h1>What It All Means</h1>
+          <p>{prediction}</p>
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div>
+        <h1>Aura Time</h1>
+        <Upload getImage={getImage}/>
+      
+        <button style={{color: 'black'}} onClick={getImage}>See yo Self</button>
+        <button style={{color: 'black'}} onClick={getPrediction}>What Does It Mean</button>
+        <div style={{position: 'relative'}}>
+          <img src='https://i.imgur.com/LCN604d.png' style={{width: '100%'}} />
+          <div className='Loading' style={{width: '70%', height: '65%', position: 'absolute', top: '70%', left: '50%', transform: 'translate(-50%, -50%)'}}>
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+              <RingLoader color="#d7b7"/>
+              <p style={{textAlign: 'center'}}>The Spirits Are Analyzing You...</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h1>What It All Means</h1>
+          <p>{prediction}</p>
+        </div>
+      </div>
+    );
+  }
 };
 
 
