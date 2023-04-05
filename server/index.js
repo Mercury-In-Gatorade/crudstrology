@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
+const axios = require('axios');
 const { User, seeder } = require('../database/index.js');
 const imgRoute = require('./imageRoute');
 require('dotenv').config();
