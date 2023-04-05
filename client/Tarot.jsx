@@ -5,29 +5,29 @@ import Button from 'react-bootstrap/Button';
 import TarotDeck from '../utils/tarot-images.json';
 // import ar00 from '../utils/tarotImgs/ar00.jpg';
 
-const Tarot = () => {
+const Tarot = ({ drawCards, tarot, setTarot, fortune, setFortune }) => {
 
-  const [tarot, setTarot] = useState([]);
-  const [fortune, setFortune] = useState([]);
+  // const [tarot, setTarot] = useState([]);
+  // const [fortune, setFortune] = useState([]);
 
-  const drawCards = () => {
-    setFortune([]);
-    axios.get('/db/tarot')
-      .then(({ data }) => {
-        setTarot(() => [...data]);
-        data.forEach((drawnCard, i) => {
-          // console.log('FIRST forEach, drawnCard', drawnCard);
-          TarotDeck.cards.forEach((deckCard) => {
-            if (deckCard.name === drawnCard.name) {
-              setFortune(prevFortune => [...prevFortune, deckCard.fortune_telling[i]]); // change to [i]
-              return;
-            }
-          });
-        });
-      })
-      .catch((err) =>
-        console.log('ERROR in useEffect in Tarot.jsx: ', err));
-  };
+  // const drawCards = () => {
+  //   setFortune([]);
+  //   axios.get('/db/tarot')
+  //     .then(({ data }) => {
+  //       setTarot(() => [...data]);
+  //       data.forEach((drawnCard, i) => {
+  //         // console.log('FIRST forEach, drawnCard', drawnCard);
+  //         TarotDeck.cards.forEach((deckCard) => {
+  //           if (deckCard.name === drawnCard.name) {
+  //             setFortune(prevFortune => [...prevFortune, deckCard.fortune_telling[i]]); // change to [i]
+  //             return;
+  //           }
+  //         });
+  //       });
+  //     })
+  //     .catch((err) =>
+  //       console.log('ERROR in useEffect in Tarot.jsx: ', err));
+  // };
 
   useEffect(drawCards, []);
   return (

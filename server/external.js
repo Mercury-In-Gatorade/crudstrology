@@ -37,12 +37,16 @@ External.get('/crystal-ball', async (req, res) => {
   await openai.createChatCompletion({
     model: 'gpt-3.5-turbo',
     messages: [{ role: 'user', content: req.query.content }],
+    max_tokens: 1300
   })
     .then(({ data }) => {
       // openAIResponse = data.choices[0].message;
       // console.log('this is the response from the then statement: ', data.choices[0].message);
+      console.log('This is the prompt for image creation: ', data.choices[0].message.content);
       openai.createImage({
-        prompt: data.choices[0].message.content
+        prompt: data.choices[0].message.content,
+        n: 1,
+        // size: '1024x1024'
       })
         .then(({ data }) => {
           console.log('this is data for image generation: ', data);
