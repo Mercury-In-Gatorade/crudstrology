@@ -46,7 +46,7 @@ const App = () => {
             <Route path="/tarot" element={<Tarot />} />
             <Route path="/favorites" element={<Favorites />} />
             <Route path="/aura" element={<Aura />} />
-            <Route path="/crystal-ball" element={<CrystalBall />} />
+            <Route path="/crystal-ball" element={<CrystalBall user={user} dob={dob} sign={sign} />} />
             <Route path="/planets" element={<Planets />} />
             <Route path="/toms" element={<Toms />} />
           </Routes>
