@@ -42,7 +42,7 @@ const Planets = () => {
           {
             planets.length === 0 ? <td>loading</td> : planets.map((planet) => (
               <tr key={planet.englishName}>
-                <td onClick={() => getPicture(planet.englishName)} >{planet.englishName}</td>
+                <td onClick={() => getPicture(planet.englishName)} ><a>{planet.englishName}</a></td>
                 <td>{planet.moons === null ? 0 : planet.moons.length }</td>
                 <td>{planet.mass.massValue}</td>
                 <td>{planet.vol.volValue}</td>
