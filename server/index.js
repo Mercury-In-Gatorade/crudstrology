@@ -3,7 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
 const { User, seeder } = require('../database/index.js');
-
+const imgRoute = require('./imageRoute');
 require('dotenv').config();
 const { SERVER_SESSION_SECRET } = process.env;
 
@@ -18,6 +18,7 @@ const app = express();
 const PORT = 8080;
 
 //middleware
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(DIST_DIR));
@@ -26,6 +27,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use('/api', External);
 app.use('/db', Internal);
+app.use('/img', imgRoute);
 
 const isLoggedIn = (req, res, next) => {
   req.user ? next() : res.sendStatus(401);
