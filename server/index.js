@@ -5,15 +5,7 @@ const passport = require('passport');
 const axios = require('axios');
 const { User, seeder } = require('../database/index.js');
 
-const { config } = require('dotenv');
-config();
-const { Configuration, OpenAIApi } = require('openai');
-// const readline = 'readline';
-const configuration = new Configuration({
-  organization: 'org-JR8ScrqlOZ2ISfjTgxxFSqu8',
-  apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
+
 // const response = await openai.listEngines();
 
 
@@ -43,26 +35,6 @@ app.use('/db', Internal);
 const isLoggedIn = (req, res, next) => {
   req.user ? next() : res.sendStatus(401);
 };
-
-//openAI test request:
-
-app.get('/crystal-ball', async (req, res) => {
-  //console.log('this is what the request body looks like for the openAI GET request: ', req.body);
-  await openai.createChatCompletion({
-    model: req.body.model,
-    messages: [{ role: req.body.messages[0].role, content: req.body.messages[0].content }],
-  })
-    .then(({ data }) => {
-      // openAIResponse = data.choices[0].message;
-      // console.log('this is the response from the then statement: ', data.choices[0].message);
-      res.status(200).send(data.choices[0].message);
-    })
-    .catch(err => {
-      console.error('an error occurred with the POST request to openai: ', err);
-      res.sendStatus(500);
-    });
-});
-
 
 // react home view*
 app.get('/', (req, res) => {
