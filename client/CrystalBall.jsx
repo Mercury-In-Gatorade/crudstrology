@@ -45,7 +45,7 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
 
   const showFortune = (type) => {
     drawCards();
-    let starSign = sign || 'unknown';
+    const starSign = sign || 'unknown';
     prompt = `Without mentioning Tarot cards, describe an abstract, dreamlike image representing a fortune for the ${type} of someone whose zodiac sign is ${starSign} based on this Tarot reading: Past: ${tarot[0].name}, Present: ${tarot[1].name}, Future: ${tarot[0].name}`;
     console.log(prompt);
     getAIGeneratedFortuneImage(prompt);
