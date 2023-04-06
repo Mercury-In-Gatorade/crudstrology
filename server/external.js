@@ -11,7 +11,7 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-const { OPENAI_API_KEY } = process.env;
+const { OPENAI_API_KEY, HORO_KEY } = process.env;
 
 // const { External } = Router();
 
