@@ -6,7 +6,7 @@ const dotenv = require('dotenv').config();
 const { Configuration, OpenAIApi } = require('openai');
 // const readline = 'readline';
 const configuration = new Configuration({
-  organization: 'org-JR8ScrqlOZ2ISfjTgxxFSqu8',
+  organization: process.env.OPENAI_ORGANIZATION,
   apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
@@ -38,7 +38,7 @@ External.get('/crystal-ball', async (req, res) => {
   await openai.createChatCompletion({
     model: 'gpt-3.5-turbo',
     messages: [{ role: 'user', content: req.query.content }],
-    max_tokens: 1300
+    max_tokens: 300
   })
     .then(({ data }) => {
       // openAIResponse = data.choices[0].message;

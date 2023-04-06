@@ -131,4 +131,9 @@ const Reading = styled.div`
   padding: .5rem;
 `;
 
-export { NavStyle, NavItem, NavUserInfo, NavImg, AstroButton, UserHoro, OtherHoros, TarotCard, WrapCardText, Reading, QuoteButton, DeleteButton };
+const FortuneImageDisplay = styled.div`
+  display: flex;
+  
+`;
+
+export { NavStyle, NavItem, NavUserInfo, NavImg, AstroButton, UserHoro, OtherHoros, TarotCard, WrapCardText, Reading, QuoteButton, DeleteButton, FortuneImageDisplay };
