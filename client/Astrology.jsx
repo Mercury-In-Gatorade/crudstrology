@@ -32,6 +32,8 @@ const Astrology = () => {
         },
       })
       .then((reading) => {
+        console.log(reading.data);
+        //const readingArray = [reading.data];
         setReading(reading.data);
       })
       .catch((err) => {
@@ -73,18 +75,20 @@ const Astrology = () => {
           </b>
         </p>
       </div>
-      <AstroButton onClick={() => fetchOtherSigns(sign)} className='text'>
+      {/* <AstroButton onClick={() => fetchOtherSigns(sign)} className='text'>
         Get Other Horoscopes
-      </AstroButton>
+      </AstroButton> */}
       <UserHoro>
-        {Object.entries(reading).map((el, i) => {
+        {/* {Object.entries(reading).map((el, i) => {
           return (
             <div key={i}>
-              <b>{el[0]}</b>:{' '}
-              {el[0] === 'description' ? el[1] : <em>{el[1]}</em>}
+              <b>{el[0]}</b>: {<em>{el[1]}</em>}
             </div>
           );
-        })}
+        })} */}
+        <div>
+          <b>horoscope</b>: <em>{reading.message}</em>
+        </div>
       </UserHoro>
       <p></p>
       <div style={{ fontSize: '20px' }}>
@@ -92,7 +96,7 @@ const Astrology = () => {
           <b>The other 11 signs.</b>
         </p>
       </div>
-      <div>
+      {/* <div>
         {horoscopes.map((el, i) => {
           return (
             <OtherHoros key={i}>
@@ -104,10 +108,12 @@ const Astrology = () => {
                   </div>
                 );
               })}
-            </OtherHoros>
+            </OtherHoros><AstroButton onClick={() => fetchOtherSigns(sign)} className='text'>
+        Get Other Horoscopes
+      </AstroButton>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };
