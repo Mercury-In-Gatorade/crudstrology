@@ -133,8 +133,8 @@ const Reading = styled.div`
 
 const CrystalBallDisplay = styled.img`
   display: block;
-  width: 100;
-  height: 100;
+  width: 1250px;
+  height: 1000px;
 `;
 
 // width: 75%;
