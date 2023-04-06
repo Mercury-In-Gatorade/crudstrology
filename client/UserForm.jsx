@@ -5,11 +5,11 @@ import axios from 'axios';
 import { UserContext } from './App.jsx';
 
 const Container = styled.div`
-display: flex;
-justify-content: space-between;
-max-width: 1200px
-margin: 0 auto;
-margin-bottom: 30px
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 30px;
 `;
 
 const Form = styled.form`
