@@ -41,7 +41,7 @@ body {
   margin-top: 20px;
   margin-left: 5px;
   font-size: 20px;
- padding: .825rem;
+  padding: 0.825rem;
 }
 
 .btn-primary {
@@ -56,7 +56,7 @@ body {
   height: 2.5rem;
   cursor: pointer;
   width: 7rem;
-  margin-top: .6rem;
+  margin-top: 0.6rem;
   left: 1rem;
   color: black;
 }
@@ -86,12 +86,12 @@ table {
   margin-bottom: 30px;
 }
 
-th, td {
+th,
+td {
   margin: 10px;
   border: 1px solid white;
   border-collapse: collapse;
   text-align: left;
-
 }
 
 .photo {
@@ -103,4 +103,9 @@ th, td {
 
 .photo img {
   width: 100%;
+}
+
+#fortuneteller-background {
+  background-image: url('https://wallpaperaccess.com/full/38119.jpg');
+  background-size: 100% 100%;
 }
