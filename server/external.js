@@ -79,11 +79,14 @@ External.post('/horo', (req, res) => {
   //     res.status(200).send(result.data);
   //   })
   //   .catch(err => res.sendStatus(500)); // console.log('Error from Aztro api post request SERVER', err)
-  const { sign } = req.data.user;
+  const { sign } = req.body.user;
+  let lowerCaseSign;
+  sign ? lowerCaseSign = sign.toLowerCase() : null;
+
   const options = {
     method: 'GET',
     url: 'https://horoskopos.p.rapidapi.com/zodiac-signs/prediction',
-    params: {sign: sign, day: 'today', lang: 'en', period: 'day'},
+    params: {sign: lowerCaseSign, day: 'today', lang: 'en', period: 'month'},
     headers: {
       'X-RapidAPI-Key': '253ff4744dmsh976b774f3e48267p189808jsnfd316ee46cf2',
       'X-RapidAPI-Host': 'horoskopos.p.rapidapi.com'
@@ -91,9 +94,9 @@ External.post('/horo', (req, res) => {
   };
 
   axios.request(options).then(function (response) {
-    console.log(response.data);
+    res.send(response.data);
   }).catch(function (error) {
-    console.error(error);
+    console.error('error');
   });
 
 
