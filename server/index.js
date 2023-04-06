@@ -113,10 +113,10 @@ app.patch('/user/:googleId', (req, res) => {
     });
 });
 
-(async () => {
-  // <-- build seed script and call seeder() in that file...
-  await seeder();
-})();
+// (async () => {
+//   // <-- build seed script and call seeder() in that file...
+//   await seeder();
+// })();
 
 // <-- SERVER WILDCARD -->
 app.get('*', (req, res) => {
