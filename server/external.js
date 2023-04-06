@@ -88,7 +88,7 @@ External.post('/horo', (req, res) => {
     url: 'https://horoskopos.p.rapidapi.com/zodiac-signs/prediction',
     params: {sign: lowerCaseSign, day: 'today', lang: 'en', period: 'month'},
     headers: {
-      'X-RapidAPI-Key': '253ff4744dmsh976b774f3e48267p189808jsnfd316ee46cf2',
+      'X-RapidAPI-Key': HORO_KEY,
       'X-RapidAPI-Host': 'horoskopos.p.rapidapi.com'
     }
   };
