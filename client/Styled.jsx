@@ -131,10 +131,32 @@ const Reading = styled.div`
   padding: 0.5rem;
 `;
 
-const FortuneImageDisplay = styled.div`
-  display: flex;
-  justify-content: center;
+const CrystalBallDisplay = styled.img`
+  display: block;
+  width: 100;
+  height: 100;
 `;
+
+// width: 75%;
+// position: relative;
+
+const FortuneImageDisplay = styled.img`
+  height: 30%;
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+// -webkit-mask-image: (black, transparent);
+// mask-image: (black, transparent);
+// -webkit-mask-image: url('');
+// -webkit-mask-size: contain;
+// -webkit-mask-repeat: no-repeat;
+// -webkit-mask-position: bottom;
+// display: flex;
+// justify-content: center;
 
 export {
   NavStyle,
@@ -149,5 +171,6 @@ export {
   Reading,
   QuoteButton,
   DeleteButton,
+  CrystalBallDisplay,
   FortuneImageDisplay,
 };

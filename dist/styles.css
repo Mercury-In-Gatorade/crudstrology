@@ -109,3 +109,11 @@ td {
   background-image: url('https://wallpaperaccess.com/full/38119.jpg');
   background-size: 100% 100%;
 }
+
+#crystal-ball-image {
+  position: relative;
+  display: inline-block;
+}
+/*   display: flex;
+  justify-content: center;
+ */
