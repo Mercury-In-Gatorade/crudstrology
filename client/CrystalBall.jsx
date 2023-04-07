@@ -41,13 +41,8 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
     <div id='fortuneteller-background'>
       <h1>Gaze Into The Crystal Ball To Reveal Your Fate!</h1>
       <button
-        onClick={() => {
-          showFortune('test');
-        }}
-      >
-        TEST
-      </button>
-      <button
+        class='fortune-button'
+        id='fortune-button-love'
         onClick={() => {
           showFortune('love life');
         }}
@@ -55,6 +50,8 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
         Love
       </button>
       <button
+        class='fortune-button'
+        id='fortune-button-career'
         onClick={() => {
           showFortune('career');
         }}
@@ -62,6 +59,8 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
         Career
       </button>
       <button
+        class='fortune-button'
+        id='fortune-button-mystery'
         onClick={() => {
           showFortune('mysteries of life');
         }}
@@ -69,6 +68,8 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
         Secrets
       </button>
       <button
+        class='fortune-button'
+        id='fortune-button-doom'
         onClick={() => {
           showFortune('doom');
         }}
