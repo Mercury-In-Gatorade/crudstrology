@@ -5,11 +5,11 @@ import axios from 'axios';
 import { UserContext } from './App.jsx';
 
 const Container = styled.div`
-display: flex;
-justify-content: space-between;
-max-width: 1200px
-margin: 0 auto;
-margin-bottom: 30px
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 30px;
 `;
 
 const Form = styled.form`
@@ -85,8 +85,8 @@ const UserForm = () => {
 
     const content = `tell an individual their near future. you should add random catastrophes, events etc that you know may occur in reality at any time over the next 200 years, results should be based personal information which should use to deduce other attributes that match similar personalities, you are an all knowing entity who can see into the future and you know the future is bad, use declarative statements only. these is the future you are telling this person directly. do not personalize
     the information, do not repeat back the information you have been told, do not make suggestions, moralize or give advice just tell them the future, ${JSON.stringify(
-    data
-  )} the users sign astrological sing is ${sign}`;
+      data
+    )} the users sign astrological sing is ${sign}`;
     console.log(content);
     //GET future prediction from openai
     getPrediction(content);

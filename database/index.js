@@ -70,6 +70,12 @@ const Quotes = sequelize.define('quote', {
   author: { type: Sequelize.STRING },
 });
 
+const Auras = sequelize.define('aura', {
+  _id: { type: Sequelize.STRING, unique: true},
+  imgURL: { type: Sequelize.STRING },
+  prediction: { type: Sequelize.STRING }
+});
+
 const fetchTarotCards = () => {
   axios.get('https://tarot-api.onrender.com/api/v1/cards')
     .then(response => {

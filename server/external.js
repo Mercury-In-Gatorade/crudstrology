@@ -11,7 +11,7 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-const { OPENAI_API_KEY } = process.env;
+const { OPENAI_API_KEY, HORO_KEY } = process.env;
 
 // const { External } = Router();
 
@@ -69,21 +69,43 @@ External.get('/crystal-ball', async (req, res) => {
 // API
 External.post('/horo', (req, res) => {
   // console.log('____SERVER____');
-  console.log('REQ BODY', req.body);
-  const { user } = req.body;
-  console.log('USER DESTRUCTURED', user);
-  axios.post(`https://aztro.sameerkumar.website?sign=${user.sign}&day=today`)
-    .then(result => {
-      console.log('RESULT from Aztro API', result.data);
-      result.data.sign = user.sign;
-      res.status(200).send(result.data);
-    })
-    .catch(err => res.sendStatus(500)); // console.log('Error from Aztro api post request SERVER', err)
+  // console.log('REQ BODY', req.body);
+  // const { user } = req.body;
+  // console.log('USER DESTRUCTURED', user);
+  // axios.post(`https://aztro.sameerkumar.website?sign=${user.sign}&day=today`)
+  //   .then(result => {
+  //     console.log('RESULT from Aztro API', result.data);
+  //     result.data.sign = user.sign;
+  //     res.status(200).send(result.data);
+  //   })
+  //   .catch(err => res.sendStatus(500)); // console.log('Error from Aztro api post request SERVER', err)
+  const { sign } = req.body.user;
+  let lowerCaseSign;
+  sign ? lowerCaseSign = sign.toLowerCase() : null;
+
+  const options = {
+    method: 'GET',
+    url: 'https://horoskopos.p.rapidapi.com/zodiac-signs/prediction',
+    params: {sign: lowerCaseSign, day: 'today', lang: 'en', period: 'month'},
+    headers: {
+      'X-RapidAPI-Key': '253ff4744dmsh976b774f3e48267p189808jsnfd316ee46cf2',
+      'X-RapidAPI-Host': 'horoskopos.p.rapidapi.com'
+    }
+  };
+
+  axios.request(options).then(function (response) {
+    res.send(response.data);
+  }).catch(function (error) {
+    console.error('error');
+  });
+
+
+
 });
 
 //Brandons openapi chat get request that he might wanna use for later idk
 External.get('/openai', async (req, res)=>{
-  
+
   const configuration = new Configuration({
     apiKey: OPENAI_API_KEY,
   });
