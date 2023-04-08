@@ -9,15 +9,21 @@ const ZenQuote = ({ quote, isActive, onClick }) => {
     setLocalIsActive(isActive);
   }, [isActive]);
   return (
-
     <div className='quote'>
-      <QuoteButton style={localIsActive || quote.like ? { backgroundColor: 'midnightblue' } : { backgroundColor: 'darkslategrey' }} onClick={onClick}><BsHandThumbsUpFill />
+      <QuoteButton
+        style={
+          localIsActive || quote.like
+            ? { backgroundColor: 'midnightblue' }
+            : { backgroundColor: 'darkslategrey' }
+        }
+        onClick={onClick}
+      >
+        <BsHandThumbsUpFill />
       </QuoteButton>{' '}
       <span>{quote.content} --</span>
-      <span>{quote.author}  </span>
+      <span>{quote.author} </span>
     </div>
   );
-
 };
 
 export default ZenQuote;
