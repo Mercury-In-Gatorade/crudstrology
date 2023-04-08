@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { CrystalBallDisplay, FortuneImageDisplay } from './Styled.jsx';
+import {
+  CrystalBallDisplay,
+  FortuneImageDisplay,
+  FortuneTellerBackground,
+  CrystalBallImage,
+} from './Styled.jsx';
 
 const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
   //all black background: https://wallpaperaccess.com/full/38119.jpg
@@ -19,7 +24,6 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
       .then((response) => {
         // let url = response.data;
         setFortuneImage(response.data); //make this fade out mist/fade in picture somehow
-        console.log('this is the response from OpenAI: ', response);
       })
       .catch((err) =>
         console.error(
@@ -38,10 +42,10 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
   };
 
   return (
-    <div id='fortuneteller-background'>
+    <FortuneTellerBackground>
       <h1>Gaze Into The Crystal Ball To Reveal Your Fate!</h1>
       <button
-        class='fortune-button'
+        className='fortune-button'
         id='fortune-button-love'
         onClick={() => {
           showFortune('love life');
@@ -50,7 +54,7 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
         Love
       </button>
       <button
-        class='fortune-button'
+        className='fortune-button'
         id='fortune-button-career'
         onClick={() => {
           showFortune('career');
@@ -59,7 +63,7 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
         Career
       </button>
       <button
-        class='fortune-button'
+        className='fortune-button'
         id='fortune-button-mystery'
         onClick={() => {
           showFortune('mysteries of life');
@@ -68,7 +72,7 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
         Secrets
       </button>
       <button
-        class='fortune-button'
+        className='fortune-button'
         id='fortune-button-doom'
         onClick={() => {
           showFortune('doom');
@@ -76,14 +80,14 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
       >
         DOOM!
       </button>
-      <section id='crystal-ball-image'>
+      <CrystalBallImage>
         <CrystalBallDisplay
           src='https://media.istockphoto.com/id/933666298/photo/hands-on-crystal-ball-and-cryptocurrency.jpg?s=612x612&w=0&k=20&c=rWJ_caa0AZCHYB09wkcLRghIYGZmGqfYe8D2l1JNZE8='
           alt='The Crystal Ball!'
         />
         <FortuneImageDisplay src={fortuneImage} alt='Your Fortune!' />
-      </section>
-    </div>
+      </CrystalBallImage>
+    </FortuneTellerBackground>
   );
 };
 

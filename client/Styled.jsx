@@ -158,6 +158,16 @@ const FortuneImageDisplay = styled.img`
 // display: flex;
 // justify-content: center;
 
+const FortuneTellerBackground = styled.div`
+  background-image: url('https://wallpaperaccess.com/full/38119.jpg');
+  background-size: 100% 100%;
+`;
+
+const CrystalBallImage = styled.section`
+  position: relative;
+  display: inline-block;
+`;
+
 export {
   NavStyle,
   NavItem,
@@ -173,4 +183,6 @@ export {
   DeleteButton,
   CrystalBallDisplay,
   FortuneImageDisplay,
+  FortuneTellerBackground,
+  CrystalBallImage,
 };
