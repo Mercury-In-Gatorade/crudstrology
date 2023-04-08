@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import UserForm from './UserForm.jsx';
 
-const Toms = () =>{
-
-
+const Toms = () => {
   return (
-    <div>    
+    <div>
       <h1>Toms Page</h1>
       <UserForm />
     </div>
-
   );
 };
-
 
 export default Toms;

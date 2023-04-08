@@ -3,19 +3,18 @@ import axios from 'axios';
 import ZenQuote from './ZenQuote.jsx';
 
 const ZenQuotes = () => {
-
   const [quotes, setQuote] = useState([]);
   const [activeButton, setActiveButton] = useState({});
 
   const likeQuote = (quote) => {
-    axios.post('/db/quote', {
-      quote: {
-        content: quote.content,
-        author: quote.author
-      }
-    }).then(() => 
-      quote.like = true
-    )
+    axios
+      .post('/db/quote', {
+        quote: {
+          content: quote.content,
+          author: quote.author,
+        },
+      })
+      .then(() => (quote.like = true))
       .catch((err) => console.error(err));
   };
   const handleClick = (index, quote) => {
@@ -25,11 +24,12 @@ const ZenQuotes = () => {
 
   useEffect(() => {
     const getQuote = () => {
-      axios.get('/api/quotes')
-        .then(quote => {
-          setQuote(prevQuote => [quote.data, ...prevQuote]);
+      axios
+        .get('/api/quotes')
+        .then((quote) => {
+          setQuote((prevQuote) => [quote.data, ...prevQuote]);
         })
-        .catch(err => {
+        .catch((err) => {
           console.log('Axios Get /db/quotes', err);
         });
     };
@@ -43,21 +43,19 @@ const ZenQuotes = () => {
   }, []);
 
   return (
-
     <div>
-      {
-        quotes.map((quote, index) => {
-
-          return (
-            <ZenQuote
-              key={index}
-              quote={quote}
-              isActive={activeButton[index]}
-              onClick={() => { handleClick(index, quote); }}
-            />
-          );
-        })
-      }
+      {quotes.map((quote, index) => {
+        return (
+          <ZenQuote
+            key={index}
+            quote={quote}
+            isActive={activeButton[index]}
+            onClick={() => {
+              handleClick(index, quote);
+            }}
+          />
+        );
+      })}
     </div>
   );
 };
