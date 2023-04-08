@@ -37,7 +37,7 @@ const Planets = () => {
 
   return (
     <div className='container'>
-      <h2>Click on a planet's name to get a picture and description</h2>
+      <h2 className='title'>Click on a planet's name to get a picture and description</h2>
       <div className="planetsContainer">
         <div className='table'>
           <table>
