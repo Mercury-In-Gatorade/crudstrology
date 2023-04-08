@@ -104,16 +104,11 @@ td {
 .photo img {
   width: 100%;
 }
-
-#fortuneteller-background {
-  background-image: url('https://wallpaperaccess.com/full/38119.jpg');
-  background-size: 100% 100%;
+.container {
+  background-color: black;
 }
 
-#crystal-ball-image {
-  position: relative;
-  display: inline-block;
+.title {
+  margin-top: 0px;
+  text-align: center;
 }
-/*   display: flex;
-  justify-content: center;
- */
