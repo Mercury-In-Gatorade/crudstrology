@@ -147,6 +147,10 @@ const FortuneImageDisplay = styled.img`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  -webkit-mask-image: url('https://freesvg.org/img/Cloud-Silhouette.png');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-image: url('https://freesvg.org/img/Cloud-Silhouette.png');
 `;
 
 // -webkit-mask-image: (black, transparent);
