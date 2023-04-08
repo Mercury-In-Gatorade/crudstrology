@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { CrystalBallDisplay, FortuneImageDisplay } from './Styled.jsx';
+import styled from 'styled-components';
+
+const FortuneTellerBackground = styled.div`
+  background-image: url('https://wallpaperaccess.com/full/38119.jpg');
+  background-size: 100% 100%;
+`;
+const CrystalBallImage = styled.section`
+  position: relative;
+  display: inline-block;
+`;
 
 const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
   //all black background: https://wallpaperaccess.com/full/38119.jpg
@@ -38,7 +48,7 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
   };
 
   return (
-    <div id='fortuneteller-background'>
+    <FortuneTellerBackground id='fortuneteller-background'>
       <h1>Gaze Into The Crystal Ball To Reveal Your Fate!</h1>
       <button
         class='fortune-button'
@@ -76,14 +86,14 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
       >
         DOOM!
       </button>
-      <section id='crystal-ball-image'>
+      <CrystalBallImage>
         <CrystalBallDisplay
           src='https://media.istockphoto.com/id/933666298/photo/hands-on-crystal-ball-and-cryptocurrency.jpg?s=612x612&w=0&k=20&c=rWJ_caa0AZCHYB09wkcLRghIYGZmGqfYe8D2l1JNZE8='
           alt='The Crystal Ball!'
         />
         <FortuneImageDisplay src={fortuneImage} alt='Your Fortune!' />
-      </section>
-    </div>
+      </CrystalBallImage>
+    </FortuneTellerBackground>
   );
 };
 
