@@ -104,3 +104,12 @@ th, td {
 .photo img {
   width: 100%;
 }
+
+.container {
+  background-color: black;
+}
+
+.title {
+  margin-top: 0px;
+  text-align: center;
+}
