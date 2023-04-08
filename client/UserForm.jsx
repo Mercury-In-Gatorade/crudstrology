@@ -17,7 +17,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 800px;
+  max-width: 600px;
   margin-right: 16px;
 `;
 
@@ -48,9 +48,13 @@ const Button = styled.button`
   cursor: pointer;
 `;
 const Story = styled.div`
+  display: flex;
+  align-content: center;
+  justify-content: center;
   width: 100%;
-  max-width: 400px;
-  padding: 16pc;
+  max-width: 600px;
+  margin-top: 15px;
+  padding: 15px;
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   font-size: 16px;
@@ -87,8 +91,8 @@ const UserForm = () => {
 
     const content = `tell an individual their near future. you should add random catastrophes, events etc that you know may occur in reality at any time over the next 200 years, results should be based personal information which should use to deduce other attributes that match similar personalities, you are an all knowing entity who can see into the future and you know the future is bad, use declarative statements only. these is the future you are telling this person directly. do not personalize
     the information, do not repeat back the information you have been told, do not make suggestions, moralize or give advice just tell them the future, ${JSON.stringify(
-      data
-    )} the users sign astrological sing is ${sign}`;
+    data
+  )} the users sign astrological sign is ${sign}`;
     console.log(content);
     //GET future prediction from openai
     getPrediction(content);

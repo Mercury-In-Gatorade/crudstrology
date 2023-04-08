@@ -8,7 +8,7 @@ import Favorites from './Favorites.jsx';
 import Aura from './Aura.jsx';
 import CrystalBall from './CrystalBall.jsx';
 import Planets from './Planets.jsx';
-import Toms from './Toms.jsx';
+import YourFuture from './YourFuture.jsx';
 import { Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 
@@ -98,7 +98,7 @@ const App = () => {
               }
             />
             <Route path='/planets' element={<Planets />} />
-            <Route path='/toms' element={<Toms />} />
+            <Route path='/toms' element={<YourFuture />} />
           </Routes>
         </div>
       </UserContext.Provider>

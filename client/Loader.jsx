@@ -2,14 +2,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const loadingContainer = {
-  //   width: '4rem',
-  //height: '20rem',
+  // width: '4rem',
+  // height: '20rem',
+
   display: 'flex',
-  justifyContent: 'center',
+  alignItems: 'center',
+
   gap: '3rem',
 };
 const loadingCircle = {
-  display: 'block',
+  display: 'flex',
   width: '5rem',
   height: '5rem',
   backgroundColor: '#3A36DB',
