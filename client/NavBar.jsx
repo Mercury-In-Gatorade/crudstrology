@@ -124,7 +124,7 @@ const NavBar = () => {
       <NavItem>
         {' '}
         <Link to='/toms' onClick={(e) => handleClick(e, 'Toms')}>
-          Toms Special Button
+          Your Future
         </Link>
       </NavItem>
     </NavStyle>
