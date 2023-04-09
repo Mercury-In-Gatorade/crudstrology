@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import UserForm from './UserForm.jsx';
 
-const Toms = () => {
+const YourFuture = () => {
   return (
     <div>
-      <h1>Toms Page</h1>
+      <h1>Your Future</h1>
       <UserForm />
     </div>
   );
 };
 
-export default Toms;
+export default YourFuture;
