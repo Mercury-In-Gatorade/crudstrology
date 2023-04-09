@@ -199,23 +199,6 @@ const CrystalBallImage = styled.section`
   height: 1000px;
 `;
 
-const CandleHolder = styled.div`
-  display: flex;
-`;
-
-const Candle = styled.img`
-  position: absolute;
-  left: 0px;
-  flex-grow: 1;
-`;
-
-const CandleInverted = styled.img`
-  position: absolute;
-  right: 0px;
-  transform: scaleX(-1);
-  flex-grow: 1;
-`;
-
 export {
   NavStyle,
   NavItem,
@@ -235,7 +218,4 @@ export {
   FortuneImageDisplay,
   FortuneTellerBackground,
   CrystalBallImage,
-  CandleHolder,
-  Candle,
-  CandleInverted,
 };

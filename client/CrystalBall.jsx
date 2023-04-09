@@ -7,9 +7,6 @@ import {
   FortuneImageDisplay,
   FortuneTellerBackground,
   CrystalBallImage,
-  CandleHolder,
-  Candle,
-  CandleInverted,
 } from './Styled.jsx';
 
 const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
@@ -93,10 +90,6 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
           alt='Your Fortune!'
         ></FortuneImageDisplay>
       </CrystalBallImage>
-      <CandleHolder>
-        <Candle src='https://images.squarespace-cdn.com/content/55f84e6de4b052893a393717/1442746626318-VJL0ZKT0I65IWZ9CJ3O5/image-asset.gif?content-type=image%2Fgif' />
-        <CandleInverted src='https://images.squarespace-cdn.com/content/55f84e6de4b052893a393717/1442746626318-VJL0ZKT0I65IWZ9CJ3O5/image-asset.gif?content-type=image%2Fgif' />
-      </CandleHolder>
     </FortuneTellerBackground>
   );
 };
