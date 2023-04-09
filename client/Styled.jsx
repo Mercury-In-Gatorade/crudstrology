@@ -131,32 +131,73 @@ const Reading = styled.div`
   padding: 0.5rem;
 `;
 
+const FortuneButton = styled.button`
+  padding: 10px 20px;
+  border: none;
+  font-size: 17px;
+  color: #fff;
+  border-radius: 7px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  transition: 0.5s;
+  transition-property: box-shadow;
+  background: rgb(0, 140, 255);
+  box-shadow: 0 0 25px rgb(0, 140, 255);
+  z-index: 1;
+
+  &:hover {
+    box-shadow: 0 0 5px rgb(0, 140, 255), 0 0 25px rgb(0, 140, 255),
+      0 0 50px rgb(0, 140, 255), 0 0 100px rgb(0, 140, 255);
+  }
+`;
+
+const FortuneButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  padding-top: 50px;
+`;
+
 const CrystalBallDisplay = styled.img`
   display: block;
   width: 1250px;
   height: 1000px;
 `;
 
-// width: 75%;
-// position: relative;
-
 const FortuneImageDisplay = styled.img`
-  height: 30%;
-  width: 30%;
   position: absolute;
-  top: 50%;
+  transition: 'opacity 3s ease-in-out';
+  opacity: '0';
+  box-shadow: 5 10 25px rgb(0, 140, 255);
+  width: 35%;
+  hight: 40%;
+  opacity: 65%;
+  border-radius: 50%;
+  top: 49%;
   left: 50%;
   transform: translate(-50%, -50%);
 `;
 
-// -webkit-mask-image: (black, transparent);
-// mask-image: (black, transparent);
-// -webkit-mask-image: url('');
+// -webkit-mask-image: url('https://svgsilh.com/svg_v2/33766.svg');
+// mask-image: url('https://svgsilh.com/svg_v2/33766.svg');
 // -webkit-mask-size: contain;
 // -webkit-mask-repeat: no-repeat;
 // -webkit-mask-position: bottom;
 // display: flex;
 // justify-content: center;
+
+const FortuneTellerBackground = styled.div`
+  background-color: rgb(0, 0, 0);
+  background-size: 100% 100%;
+`;
+
+const CrystalBallImage = styled.section`
+  position: relative;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 1250px;
+  height: 1000px;
+`;
 
 export {
   NavStyle,
@@ -169,8 +210,12 @@ export {
   TarotCard,
   WrapCardText,
   Reading,
+  FortuneButton,
+  FortuneButtonContainer,
   QuoteButton,
   DeleteButton,
   CrystalBallDisplay,
   FortuneImageDisplay,
+  FortuneTellerBackground,
+  CrystalBallImage,
 };

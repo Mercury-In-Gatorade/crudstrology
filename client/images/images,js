@@ -1,0 +1,3 @@
+import dizzyBelovedHypsilophodon from 'DizzyBelovedHypsilophodon-max-1mb.gif';
+
+export { dizzyBelovedHypsilophodon };
