@@ -23,29 +23,42 @@ const Form = styled.form`
 
 const Label = styled.label`
   margin-bottom: 4px;
+  font-size:20px;
 `;
 
 const Input = styled.input`
   margin-bottom: 16px;
   padding: 8px;
-  font-size: 16px;
+  font-size: 20px;
   color: black;
 `;
 
 const Textarea = styled.textarea`
   margin-bottom: 16px;
   padding: 8px;
-  font-size: 16px;
+  font-size: 20px;
   color: black;
 `;
 
 const Button = styled.button`
   padding: 8px 16px;
-  font-size: 16px;
+  font-size: 25px;
   background-color: #1e88e5;
   color: #ffffff;
-  border: none;
   cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #6074e7;
+  &:hover{
+    background-color: #310b6d
+  };
+  &:active{
+  box-shadow: 0 9px #6074e7;
+    box-shadow: 0 5px ;
+    transform: translateY(4px);
+  };
+
 `;
 const Story = styled.div`
   display: flex;
@@ -57,7 +70,7 @@ const Story = styled.div`
   padding: 15px;
   background-color: #f0f0f0;
   border: 1px solid #ccc;
-  font-size: 16px;
+  font-size: 20px;
   color: black;
 `;
 
@@ -69,11 +82,13 @@ const UserForm = () => {
   } = useForm();
   const { sign } = useContext(UserContext);
   const [story, setStory] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const getPrediction = async (content) => {
     axios
       .get(`/api/openai?content=${content}`)
       .then((response) => {
+        setIsLoading(false);
         const reply = response.data.content;
         console.log(reply);
         setStory(reply);
@@ -84,8 +99,7 @@ const UserForm = () => {
   };
 
   const onSubmit = (data) => {
-    setStory(Loader);
-    //console.log(data);
+    setIsLoading(true);
     const { hobbies, interests, personalDetails, profession, vices, virtues } =
       data;
 
@@ -132,9 +146,13 @@ const UserForm = () => {
         <Label htmlFor='virtues'>Virtues</Label>
         <Input {...register('virtues', { required: true })} id='virtues' />
 
-        <Button type='submit'>Submit</Button>
+        <Button type='submit'>SUBMIT</Button>
       </Form>
-      <Story>{story}</Story>
+      <Story>{isLoading ? (
+        <img src="https://i.imgur.com/GgARfjD.gif" alt="Loading animation" />
+      ) : (
+        story
+      )}</Story>
     </Container>
   );
 };
