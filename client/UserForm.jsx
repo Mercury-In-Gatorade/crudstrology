@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import axios from 'axios';
 import { UserContext } from './App.jsx';
-import Loader from './Loader.jsx';
+
 
 const Container = styled.div`
   display: flex;
