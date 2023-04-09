@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
+  FortuneButton,
+  FortuneButtonContainer,
   CrystalBallDisplay,
   FortuneImageDisplay,
   FortuneTellerBackground,
   CrystalBallImage,
+  CandleHolder,
+  Candle,
+  CandleInverted,
 } from './Styled.jsx';
 
 const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
@@ -13,9 +18,7 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
   //shimmering fog gif (transparent?): https://thumbs.gfycat.com/DizzyBelovedHypsilophodon-max-1mb.gif
   //other fog gif: https://i.imgur.com/XaWXuh1.gif
   //another swirling smoke gif: https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWExZDJmOTM1NzE4NzI1OWU5YWVjMmVlYjYxYjk3MzBjZTc0NTRjNiZjdD1n/ftfVpeWsm95QgGfOZ8/giphy.gif
-  const [fortuneImage, setFortuneImage] = useState(
-    'https://thumbs.gfycat.com/DizzyBelovedHypsilophodon-max-1mb.gif'
-  );
+  const [fortuneImage, setFortuneImage] = useState('');
 
   const getAIGeneratedFortuneImage = (content) => {
     //maybe set state to the swirling mist here, so it only appears on button press?
@@ -34,6 +37,7 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
   };
 
   const showFortune = (type) => {
+    setFortuneImage('https://i.imgur.com/a74Pgfg.gif');
     drawCards();
     const starSign = sign || 'unknown';
     prompt = `Without mentioning Tarot cards, describe an abstract, dreamlike image representing a fortune for the ${type} of someone whose zodiac sign is ${starSign} based on this Tarot reading: Past: ${tarot[0].name}, Present: ${tarot[1].name}, Future: ${tarot[0].name}`;
@@ -44,53 +48,61 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
   return (
     <FortuneTellerBackground>
       <h1>Gaze Into The Crystal Ball To Reveal Your Fate!</h1>
-      <button
-        className='fortune-button'
-        id='fortune-button-love'
-        onClick={() => {
-          showFortune('love life');
-        }}
-      >
-        Love
-      </button>
-      <button
-        className='fortune-button'
-        id='fortune-button-career'
-        onClick={() => {
-          showFortune('career');
-        }}
-      >
-        Career
-      </button>
-      <button
-        className='fortune-button'
-        id='fortune-button-mystery'
-        onClick={() => {
-          showFortune('mysteries of life');
-        }}
-      >
-        Secrets
-      </button>
-      <button
-        className='fortune-button'
-        id='fortune-button-doom'
-        onClick={() => {
-          showFortune('doom');
-        }}
-      >
-        DOOM!
-      </button>
+      <FortuneButtonContainer>
+        <FortuneButton
+          id='love-button'
+          onClick={() => {
+            showFortune('love life');
+          }}
+        >
+          Love
+        </FortuneButton>
+        <FortuneButton
+          id='career-button'
+          onClick={() => {
+            showFortune('career');
+          }}
+        >
+          Career
+        </FortuneButton>
+        <FortuneButton
+          id='secrets-button'
+          onClick={() => {
+            showFortune('mysteries of life');
+          }}
+        >
+          Secrets
+        </FortuneButton>
+        <FortuneButton
+          id='doom-button'
+          onClick={() => {
+            showFortune('doom');
+          }}
+        >
+          DOOM!
+        </FortuneButton>
+      </FortuneButtonContainer>
       <CrystalBallImage>
         <CrystalBallDisplay
           src='https://media.istockphoto.com/id/933666298/photo/hands-on-crystal-ball-and-cryptocurrency.jpg?s=612x612&w=0&k=20&c=rWJ_caa0AZCHYB09wkcLRghIYGZmGqfYe8D2l1JNZE8='
           alt='The Crystal Ball!'
         />
-        <FortuneImageDisplay src={fortuneImage} alt='Your Fortune!' />
+        <FortuneImageDisplay
+          onLoad={(e) => (e.target.style.opacity = 0.65)}
+          src={fortuneImage}
+          alt='Your Fortune!'
+        ></FortuneImageDisplay>
       </CrystalBallImage>
+      <CandleHolder>
+        <Candle src='https://images.squarespace-cdn.com/content/55f84e6de4b052893a393717/1442746626318-VJL0ZKT0I65IWZ9CJ3O5/image-asset.gif?content-type=image%2Fgif' />
+        <CandleInverted src='https://images.squarespace-cdn.com/content/55f84e6de4b052893a393717/1442746626318-VJL0ZKT0I65IWZ9CJ3O5/image-asset.gif?content-type=image%2Fgif' />
+      </CandleHolder>
     </FortuneTellerBackground>
   );
 };
 
 export default CrystalBall;
 
-//old image tag for crystal ball: <img id='crystal-ball-image' src={crystalBallImage} alt='The Crystal Ball!' />
+//crystal ball image:
+//cloud mask png link: https://freesvg.org/img/Cloud-Silhouette.png
+//CSS for fortune teller background image:  background-image: url('https://wallpaperaccess.com/full/38119.jpg');
