@@ -10,6 +10,7 @@ import {
 } from './Styled.jsx';
 
 const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
+  //below are just some additional graphics I found that could be swapped out for the current ones
   //all black background: https://wallpaperaccess.com/full/38119.jpg
   //fortune teller hut background image: https://i.pinimg.com/originals/28/df/61/28df61933e9b931f843f03cfe28f8096.jpg
   //shimmering fog gif (transparent?): https://thumbs.gfycat.com/DizzyBelovedHypsilophodon-max-1mb.gif
@@ -18,11 +19,9 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
   const [fortuneImage, setFortuneImage] = useState('');
 
   const getAIGeneratedFortuneImage = (content) => {
-    //maybe set state to the swirling mist here, so it only appears on button press?
     axios
       .get(`/api/crystal-ball?content=${content}`)
       .then((response) => {
-        // let url = response.data;
         setFortuneImage(response.data); //make this fade out mist/fade in picture somehow
       })
       .catch((err) =>
