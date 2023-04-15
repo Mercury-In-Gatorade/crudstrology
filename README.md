@@ -5,6 +5,10 @@
 - Users can like the quotes from the feed on the homepage to view on a favorites list. 
 - Quotes and Horoscopes are collected from external APIs (with no keys required).
 - Tarot readings are dynamically generated from a combination of api data and local data from the utils directory.
+- Users can upload a photo of themselves and see their Aura.
+- Users can See planets and what they main for their future.
+- Users can gaze into a crystal ball and see what awaits them! CONTEMPLATE YOUR FATE!
+- Users can recieve a customized fortune based on details of their lives!
 
 
 ## How to Start (for Devs)
