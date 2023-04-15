@@ -14,6 +14,7 @@
 - enter `sudo service mysql start` (bash) or `mysql.server start` (mac) to start database in bash terminal
 - enter mysql shell: `mysql -u root` && `CREATE DATABASE dbstrology`
 - make sure `seeder()` is being invoked in /server/index.js --> app.listen anonymous function
+- after creating the "seed" database remove the 'seeder()' function from the app.listen function only when you set up the server or want a clean database
 - remove _example_ from .env file and enter required keys which are created at https://console.cloud.google.com/apis/credentials 
 - `npm run build` && `npm run start` in terminal to run webpack and start the express server respectively
 - visit http://localhost:8080/ to see served page
