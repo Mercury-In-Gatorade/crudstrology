@@ -16,13 +16,13 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
   //shimmering fog gif (transparent?): https://thumbs.gfycat.com/DizzyBelovedHypsilophodon-max-1mb.gif
   //other fog gif: https://i.imgur.com/XaWXuh1.gif
   //another swirling smoke gif: https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWExZDJmOTM1NzE4NzI1OWU5YWVjMmVlYjYxYjk3MzBjZTc0NTRjNiZjdD1n/ftfVpeWsm95QgGfOZ8/giphy.gif
-  const [fortuneImage, setFortuneImage] = useState('');
+  const [fortuneImage, setFortuneImage] = useState(''); //initially displays no image, though this does show a barely noticable 'broken image' iton within the crystal ball
 
-  const getAIGeneratedFortuneImage = (content) => {
+  const getAIGeneratedFortuneImage = (content) => { //sends a prompt to OpenAI API which it uses to generate an image
     axios
       .get(`/api/crystal-ball?content=${content}`)
       .then((response) => {
-        setFortuneImage(response.data); //make this fade out mist/fade in picture somehow
+        setFortuneImage(response.data); 
       })
       .catch((err) =>
         console.error(
@@ -33,10 +33,10 @@ const CrystalBall = ({ drawCards, user, sign, setSign, tarot }) => {
   };
 
   const showFortune = (type) => {
-    setFortuneImage('https://i.imgur.com/a74Pgfg.gif');
-    drawCards();
-    const starSign = sign || 'unknown';
-    prompt = `Without mentioning Tarot cards, describe an abstract, dreamlike image representing a fortune for the ${type} of someone whose zodiac sign is ${starSign} based on this Tarot reading: Past: ${tarot[0].name}, Present: ${tarot[1].name}, Future: ${tarot[0].name}`;
+    setFortuneImage('https://i.imgur.com/a74Pgfg.gif'); //this displays a gif depicting swirling mists while we wait for the fortune image to generate. I wanted to make this 'fade in' then 'fade out' while the image fades in, but didn't have the time
+    drawCards(); //this draws 3 tarot cards to be used to generate fortune; currently bugged such that the very first click will cause an error (each subsequent click should work fine, even for different buttons, though it does take some time to load)
+    const starSign = sign || 'unknown'; 
+    prompt = `Without mentioning Tarot cards, describe an abstract, dreamlike image representing a fortune for the ${type} of someone whose zodiac sign is ${starSign} based on this Tarot reading: Past: ${tarot[0].name}, Present: ${tarot[1].name}, Future: ${tarot[0].name}`; //this is the prompt sent to OpenAI, which it uses to generate another prompt, which will be again sent to OpenAI to use to generate an image!
     console.log(prompt);
     getAIGeneratedFortuneImage(prompt);
   };
