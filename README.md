@@ -14,6 +14,7 @@
 - enter `sudo service mysql start` (bash) or `mysql.server start` (mac) to start database in bash terminal
 - enter mysql shell: `mysql -u root` && `CREATE DATABASE dbstrology`
 - make sure `seeder()` is being invoked in /server/index.js --> app.listen anonymous function
+- after creating the "seed" database remove the 'seeder()' function from the app.listen function only when you set up the server or want a clean database
 - remove _example_ from .env file and enter required keys which are created at https://console.cloud.google.com/apis/credentials 
 - `npm run build` && `npm run start` in terminal to run webpack and start the express server respectively
 - visit http://localhost:8080/ to see served page
@@ -27,11 +28,16 @@
 - Server: Express
 - Database: mySQL / Sequelize
 - Auth: Passport-OAuth2
+- Cloudinary: Image storage/ Image Upload
 - APIs: https://aztro.readthedocs.io/en/latest/# && https://api.quotable.io
- && https://robohash.org/ && https://tarot-api.onrender.com/api/v1/cards/random?n=1
+ && https://robohash.org/ && https://tarot-api.onrender.com/api/v1/cards/random?n=1 && https://platform.openai.com/docs/api-reference && https://api.le-systeme-solaire.net/rest/bodies/?filter%5B%5D=isPlanet,eq,true && https://planets-17f2.onrender.com/planets/getPlanet?name= && https://rapidapi.com/alfreddagenais/api/horoskopos && Cloudinary
 - Linting: ESLint / AirBnB
 - Styled Components
 - React Icons
+
+## Bugs
+- crystal ball takes two clicks on the first time its used.
+- load times from openAI are significant, takes 10-15 seconds to recieve data
 
 ## Contact Info
 
