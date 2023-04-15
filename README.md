@@ -27,11 +27,16 @@
 - Server: Express
 - Database: mySQL / Sequelize
 - Auth: Passport-OAuth2
+- Cloudinary: Image storage/ Image Upload
 - APIs: https://aztro.readthedocs.io/en/latest/# && https://api.quotable.io
- && https://robohash.org/ && https://tarot-api.onrender.com/api/v1/cards/random?n=1 && https://platform.openai.com/docs/api-reference && https://api.le-systeme-solaire.net/rest/bodies/?filter%5B%5D=isPlanet,eq,true && https://planets-17f2.onrender.com/planets/getPlanet?name= && https://rapidapi.com/alfreddagenais/api/horoskopos
+ && https://robohash.org/ && https://tarot-api.onrender.com/api/v1/cards/random?n=1 && https://platform.openai.com/docs/api-reference && https://api.le-systeme-solaire.net/rest/bodies/?filter%5B%5D=isPlanet,eq,true && https://planets-17f2.onrender.com/planets/getPlanet?name= && https://rapidapi.com/alfreddagenais/api/horoskopos && Cloudinary
 - Linting: ESLint / AirBnB
 - Styled Components
 - React Icons
+
+## Bugs
+- crystal ball takes two clicks on the first time its used.
+- load times from openAI are significant, takes 10-15 seconds to recieve data
 
 ## Contact Info
 
